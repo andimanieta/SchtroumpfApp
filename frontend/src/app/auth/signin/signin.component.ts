@@ -10,41 +10,13 @@ import {Observable} from "rxjs";
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-/*  loginForm: FormGroup;
-  loading = false;
-  errorMessage: string;
-  signInForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private auth: AuthService) { }
-
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required]
-    });
-  }
-
-  onLogin() {
-    this.loading = true;
-    const email = this.signInForm.get('email').value;
-    const password = this.signInForm.get('password').value;
-    this.auth.signIn(email, password)
-      .then(() => this.router.navigate(['/part-three/all-stuff']))
-      .catch(error => {
-        this.loading = false;
-        this.errorMessage = error.message;
-      }
-    );
-  }
-}*/
-
   formGroup: FormGroup;
   titleAlert: string = 'This field is required';
-  post: any = '';
+  serverErreur: string = '';
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -54,9 +26,6 @@ export class SigninComponent implements OnInit {
   createForm() {
     this.formGroup = this.formBuilder.group({
       'name': [null, Validators.required],
-      'age': [null, Validators.required],
-      'family': [null, Validators.required],
-      'food': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       'password': [null, [Validators.required, this.checkPassword]],
       'validate': ''
     });
@@ -86,24 +55,28 @@ export class SigninComponent implements OnInit {
     return (!passwordCheck.test(enteredPassword) && enteredPassword) ? { 'requirements': true } : null;
   }
 
-  checkInSchtroumpfName(control) {
-    let db = ['access to database'];
-    return new Observable(observer => {
-      setTimeout(() => {
-        let result = (db.indexOf(control.value) !== -1) ? { 'alreadyInUse': true } : null;
-        observer.next(result);
-        observer.complete();
-      }, 4000)
-    })
-  }
-
   getErrorPassword() {
     return this.formGroup.get('password').hasError('required') ? 'Field is required (at least eight characters, one uppercase letter and one number)' :
       this.formGroup.get('password').hasError('requirements') ? 'Password needs to be at least eight characters, one uppercase letter and one number' : '';
   }
 
-  onSubmit(post) {
-    this.post = post;
+  checkInSchtroumpfIDs(formGroup: FormGroup) {
+    const email = this.formGroup.get('email').value;
+    const password = this.formGroup.get('password').value;
+    this.auth.signIn(email, password)
+      .then(() => {
+          this.router.navigate(['home']);
+        }
+    ).catch(
+      (error) => {
+        this.serverErreur = error.message;
+      }
+    );
+  }
+
+
+  onSubmit() {
+    this.checkInSchtroumpfIDs(this.formGroup)
   }
 
 }

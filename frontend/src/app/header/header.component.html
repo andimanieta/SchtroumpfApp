@@ -3,6 +3,6 @@
 
   <div class="spacer"></div>
   <a mat-button routerLink="auth/signin" *ngIf="!isAuth">Login</a>
-  <a mat-raised-button color="accent" routerLink="auth/signup" *ngIf="!isAuth">Sign up</a>
+  <a mat-raised-button routerLink="auth/signup" color="accent"  *ngIf="!isAuth">Sign up</a>
   <a mat-raised-button color="accent" *ngIf="isAuth" (click)="onLogout()">logout</a>
 </mat-toolbar>

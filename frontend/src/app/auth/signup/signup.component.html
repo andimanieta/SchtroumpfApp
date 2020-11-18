@@ -1,16 +1,60 @@
-<div class="container">
-  <div class="col-sm-8 offset-sm-2 mt-2">
-    <form [formGroup]="signUpForm">
-      <div class="form-group">
-        <label for="email">Choose your username </label>
-        <input type="email" id="email" formControlName="email" class="form-control">
+<div class="main_container">
+
+  <mat-toolbar color="accent" class="mat-elevation-z8">
+    <span class="fill-remaining-space"><p>Sign In</p></span>
+  </mat-toolbar>
+  <div class="form_container" *ngIf="!post; else forminfo" novalidate>
+
+    <form [formGroup]="formGroup" class="form">
+
+      <mat-form-field class="form-element">
+        <input matInput placeholder="schtroumpfName" formControlName="name">
+        <mat-error *ngIf="!name.valid && name.touched">{{ titleAlert }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input  matInput placeholder="age" formControlName="age">
+        <mat-error *ngIf="!formGroup.controls['age'].valid && formGroup.controls['age'].touched">
+          {{ getErrorAge() }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input matInput placeholder="Family" formControlName="family">
+        <mat-error *ngIf="!formGroup.controls['family'].valid && formGroup.controls['age'].touched">
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <textarea matInput placeholder="Food" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="5"
+                  formControlName="description"></textarea>
+        <mat-error *ngIf="!formGroup.controls['food'].valid && formGroup.controls['food'].touched">
+          Required field, must be between 5 and 10 characters.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input matInput placeholder="Password" formControlName="password">
+        <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+        <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+          {{ getErrorPassword() }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-element">
+        <button mat-raised-button color="accent" type="submit" (click)="onSignup()"
+                class="button" [disabled]="!formGroup.valid">Submit Form</button>
+        <mat-error *ngIf="serverErreur">{{ serverErreur }}</mat-error>
       </div>
-      <div class="form-group">
-        <label for="password">Choose your password </label>
-        <input type="password" id="password" formControlName="password" class="form-control">
-      </div>
-      <button class="btn btn-success" (click)="onSignup()" [disabled]="signUpForm.invalid">Sign In</button>
+
     </form>
-    <p>{{ errorMessage }}</p>
   </div>
+
 </div>
+
+<ng-template #forminfo>
+  <div class="container">
+    {{ post | json }}
+  </div>
+</ng-template>

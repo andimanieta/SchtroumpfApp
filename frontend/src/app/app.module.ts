@@ -36,16 +36,18 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { FooterComponent } from './footer/footer.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
 import 'hammerjs';
+
 
 
 export const routes: Routes = [
   {path: 'home', component: SchtroumpfHomeViewComponent/*, canActivate: [AuthGuard]*/},
   {path: 'auth/signin', component: SigninComponent},
   {path: 'auth/signup', component: SignupComponent},
-  {path: 'schtroumpfs', component: SchtroumpfListComponent, canActivate: [AuthGuard]},
-  {path: 'schtroumpf_friends/:id', component: SchtroumpfFriendsListComponent, canActivate: [AuthGuard]},
-  {path: 'schtroumpf/:id', component: SchtroumpfViewComponent, canActivate: [AuthGuard]},
+  {path: 'schtroumpfs', component: SchtroumpfListComponent/*, canActivate: [AuthGuard]*/},
+  {path: 'schtroumpf_friends/:id', component: SchtroumpfFriendsListComponent/*, canActivate: [AuthGuard]*/},
+  {path: 'schtroumpf/:id', component: SchtroumpfViewComponent/*, canActivate: [AuthGuard]*/},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -80,7 +82,8 @@ export const routes: Routes = [
     MatIconModule,
     RouterModule.forRoot(routes),
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule
   ],
   providers: [
     AuthService,

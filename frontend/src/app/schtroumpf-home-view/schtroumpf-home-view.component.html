@@ -12,7 +12,10 @@
       <mat-card-header>
 
         <mat-card-title> <p class="card_title">{{ name }}</p></mat-card-title>
-        <mat-card-subtitle><p class="card_subtitle">Age: <i>{{ age }} ans</i></p></mat-card-subtitle>
+        <mat-card-subtitle><p class="card_subtitle">Age:
+          <i *ngIf="age <= 1">{{ age }} year old </i>
+          <i *ngIf="age > 1">{{ age }} years old </i>
+        </p></mat-card-subtitle>
         <mat-card-subtitle> <p class="card_subtitle">Family: <i>{{ family }}</i></p></mat-card-subtitle>
         <mat-card-subtitle><p class="card_subtitle">Food: <i>{{ food }}</i></p> </mat-card-subtitle>
       </mat-card-header>
