@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <span><a routerLink="home" mat-button class="logo" alt=""><mat-icon color="accent">whatshot</mat-icon>{{ app_title }}</a> </span>
+
+  <div class="spacer"></div>
+  <a mat-button routerLink="auth/signin" *ngIf="!isAuth">Login</a>
+  <a mat-raised-button color="accent" routerLink="auth/signup" *ngIf="!isAuth">Sign up</a>
+  <a mat-raised-button color="accent" *ngIf="isAuth" (click)="onLogout()">logout</a>
+</mat-toolbar>

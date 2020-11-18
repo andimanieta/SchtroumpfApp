@@ -1,0 +1,29 @@
+.footer_bloc{
+  position: relative;
+  bottom: 0;
+}
+footer {
+  margin-top: 2%;
+  background-color: #3F51B5;
+  height: 80px;
+  border-top: 1px solid #bbb;
+  box-shadow: -5px 3px 15px 3px #333333;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+#btmFooter {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+p{
+  font-size: 20px;
+  color : snow;
+  vertical-align: center;
+}

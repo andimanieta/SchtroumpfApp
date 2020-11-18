@@ -1,0 +1,64 @@
+<!--<mat-grid-list class="main_grid" cols="3">
+  <mat-grid-tile class="grid1" colspan="2">-->
+<div class="profile_section">
+  <h1>Profile</h1>
+    <mat-card class="main_card">
+      <div class="card_picture">
+        <img alt="..." class="image_card" mat-card-image
+             src="https://www.coloori.com/wp-content/uploads/2016/01/schtroumpfs.jpg">
+      </div>
+
+      <div class="car_content">
+      <mat-card-header>
+
+        <mat-card-title> <p class="card_title">{{ name }}</p></mat-card-title>
+        <mat-card-subtitle><p class="card_subtitle">Age: <i>{{ age }} ans</i></p></mat-card-subtitle>
+        <mat-card-subtitle> <p class="card_subtitle">Family: <i>{{ family }}</i></p></mat-card-subtitle>
+        <mat-card-subtitle><p class="card_subtitle">Food: <i>{{ food }}</i></p> </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <a mat-button color="primary">Edit profile</a>
+      </mat-card-content>
+      </div>
+    </mat-card>
+</div>
+<br><br>
+<h1>Friends</h1>
+<div class="friendslist_section">
+
+  <mat-card class="small_card" *ngFor="let number of numbers">
+    <mat-card-header>
+      <div mat-card-avatar class="small_card-header-image"
+           [ngStyle]="{'background-image': 'url(' + urlimage + ')'}"></div>
+      <mat-card-subtitle>Friends {{number}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button>Remove friend</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<br><br>
+<h1>All Schtroumpfs</h1>
+<div class="schtroumpfslist_section">
+
+  <mat-card class="small_card" *ngFor="let number of numbers">
+    <mat-card-header>
+      <div mat-card-avatar class="small_card-header-image"
+           [ngStyle]="{'background-image': 'url(' + urlimage + ')'}"></div>
+      <mat-card-subtitle>Friends {{number}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button>Add friend</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!--  </mat-grid-tile>-->
+
+
+
+<!--
+  <mat-grid-tile class="grid2" colspan="1" rowspan="1">
+    Schtroumpf list</mat-grid-tile>
+</mat-grid-list>
+-->

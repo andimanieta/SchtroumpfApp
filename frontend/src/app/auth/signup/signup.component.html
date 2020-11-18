@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-sm-8 offset-sm-2 mt-2">
+    <form [formGroup]="signUpForm">
+      <div class="form-group">
+        <label for="email">Choose your username </label>
+        <input type="email" id="email" formControlName="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Choose your password </label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+      </div>
+      <button class="btn btn-success" (click)="onSignup()" [disabled]="signUpForm.invalid">Sign In</button>
+    </form>
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

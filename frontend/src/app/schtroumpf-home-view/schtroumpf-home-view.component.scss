@@ -1,0 +1,78 @@
+.profile_section{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  min-width: 500px;
+  width: 80%;
+}
+.friendslist_section{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+}
+
+.schtroumpfslist_section{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+}
+
+h1{
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: #24292e;
+  text-space: 2px;
+  text-decoration: none;
+}
+.grid1{
+  display: inline-block;
+  margin-left: auto;
+}
+
+.main_card{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+
+}
+.card_picture{
+  max-width: 450px;
+  max-height: 450px;
+  margin: 0px;
+}
+.image_card{
+  width: 280px;
+  height: 250px;
+
+
+}
+
+.card_title{
+  font-size: larger;
+  font-weight: bold;
+}
+
+.card_subtitle{
+  font-size: large;
+}
+.small_card {
+  max-width: 100px;
+  max-height: 150px;
+  margin: 1%
+}
+
+.small_card-header-image {
+/*  background-image: url('');*/
+  background-size: cover;
+}
