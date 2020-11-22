@@ -1,0 +1,101 @@
+.profile_section {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-left: 20px;
+  min-width: 600px;
+  height: 350px;
+  width: 70%;
+}
+.grid1{
+  display: inline-block;
+  margin-left: auto;
+}
+
+.main_card{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+
+}
+.card_picture{
+  max-width: 450px;
+  max-height: 450px;
+  margin: 0px;
+  border-radius: 50px 50px 50px 50px;
+}
+.image_card{
+  width: 280px;
+  height: 250px;
+  border-radius: 50px 50px 50px 50px;
+  box-shadow: -5px 5px 55px 1px #888888;
+}
+
+.card_title{
+  font-size: larger;
+  font-weight: bold;
+}
+
+.card_subtitle{
+  font-size: large;
+}
+.small_card {
+  display: block;
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 210px;
+  min-height: 210px;
+  margin: 1%
+}
+
+.card_infos{
+  margin: 3px;
+}
+
+.card_button{
+  display: flex;
+  justify-content: center;
+}
+
+.firend_card_header{
+  display: block;
+}
+
+.small_card-header-image {
+  background-size: cover;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+}
+.card_content{
+  margin-top: 35px;
+  margin-left: 30px;
+  max-width: 800px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.borderProfile {
+  flex-shrink: 0;
+  margin: 20px;
+  height: calc(150px + 6vw);
+  width: calc(150px + 6vw);
+  border: calc(8px + 0.2vw) solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-size: cover;
+  box-sizing: border-box;
+  box-shadow: -1px 1px 10px 8px rgba(0, 0, 0, 0.2);
+}
+
+.borderProfile-1 {
+  border-radius: 30%;
+  background-image: var(--img-url), linear-gradient(#f9f047, #0fd850);
+}
+
+.borderProfile-2 {
+  border-radius: 50%;
+  background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);
+}

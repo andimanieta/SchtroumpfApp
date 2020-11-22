@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.setChangeValidate()
+    this.setChangeValidate();
   }
 
   createForm() {
@@ -61,9 +61,9 @@ export class SigninComponent implements OnInit {
   }
 
   checkInSchtroumpfIDs(formGroup: FormGroup) {
-    const email = this.formGroup.get('email').value;
+    const name = this.formGroup.get('name').value;
     const password = this.formGroup.get('password').value;
-    this.auth.signIn(email, password)
+    this.auth.signIn(name, password)
       .then(() => {
           this.router.navigate(['home']);
         }
@@ -76,7 +76,17 @@ export class SigninComponent implements OnInit {
 
 
   onSubmit() {
-    this.checkInSchtroumpfIDs(this.formGroup)
+    const name = this.formGroup.get('name').value;
+    const password = this.formGroup.get('password').value;
+    this.auth.signIn(name, password)
+      .then(() => {
+          this.router.navigate(['home']);
+        }
+      ).catch(
+      (error) => {
+        this.serverErreur = error.message;
+      }
+    );
   }
 
 }

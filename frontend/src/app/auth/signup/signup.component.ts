@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.setChangeValidate()
+    this.setChangeValidate();
   }
 
 
@@ -33,17 +33,10 @@ export class SignupComponent implements OnInit {
       'age': [null, [Validators.required, this.checkAge]],
       'family': [null, Validators.required],
       'food': [null, Validators.required],
+      'picture': [null, Validators.required],
       'password': [null, [Validators.required, this.checkPassword]],
       'validate': ''
     });
-  }
-
-  onSignup() {
-    const email = this.formGroup.get('email').value;
-    const password = this.formGroup.get('password').value;
-    this.auth.createNewUser(email, password).then(
-      () => this.router.navigate(['signin']))
-      .catch(error => this.errorMessage = error.message);
   }
 
   setChangeValidate() {
@@ -59,6 +52,20 @@ export class SignupComponent implements OnInit {
       }
     )
   }
+
+  onSignup() {
+    const name = this.formGroup.get('name').value;
+    const age = this.formGroup.get('age').value;
+    const family = this.formGroup.get('family').value;
+    const food = this.formGroup.get('food').value;
+    const picture = this.formGroup.get('picture').value;
+    const password = this.formGroup.get('password').value;
+    this.auth.createNewUser(name, age, family, food, picture, password).then(
+      () => this.router.navigate(['home']))
+      .catch(error => this.errorMessage = error.message);
+  }
+
+
 
   checkInSchtroumpfName(control)
   {

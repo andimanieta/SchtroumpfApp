@@ -1,10 +1,14 @@
 .profile_section{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  min-width: 500px;
-  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 70px;
+  margin-left: 20px;
+  min-width: 600px;
+  width: 60%;
 }
+
 .friendslist_section{
   margin-left: auto;
   margin-right: auto;
@@ -29,10 +33,16 @@
 
 h1{
   text-align: center;
+  margin-top: 15px;
   text-transform: uppercase;
   text-shadow: #24292e;
   text-space: 2px;
   text-decoration: none;
+}
+
+hr{
+  width: 90%;
+  box-shadow: -1px 1px 55px 1px #888888;
 }
 .grid1{
   display: inline-block;
@@ -50,29 +60,80 @@ h1{
   max-width: 450px;
   max-height: 450px;
   margin: 0px;
+  border-radius: 50px 50px 50px 50px;
 }
 .image_card{
   width: 280px;
   height: 250px;
-
+  border-radius: 50px 50px 50px 50px;
+  box-shadow: -5px 5px 55px 1px #888888;
 
 }
 
 .card_title{
   font-size: larger;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .card_subtitle{
   font-size: large;
 }
 .small_card {
-  max-width: 100px;
-  max-height: 150px;
+  display: block;
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 210px;
+  min-height: 210px;
   margin: 1%
 }
 
+.card_infos{
+  margin: 3px;
+}
+
+.card_button{
+  display: flex;
+  justify-content: center;
+}
+
+.firend_card_header{
+  display: block;
+  cursor: pointer;
+}
+
 .small_card-header-image {
-/*  background-image: url('');*/
   background-size: cover;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+}
+.card_content{
+  margin-top: 15px;
+  margin-left: 30px;
+  max-width: 800px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.borderProfile {
+  flex-shrink: 0;
+  margin: 20px;
+  height: calc(150px + 6vw);
+  width: calc(150px + 6vw);
+  border: calc(8px + 0.2vw) solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-size: cover;
+  box-sizing: border-box;
+  box-shadow: -1px 1px 10px 8px rgba(0, 0, 0, 0.2);
+}
+
+.borderProfile-1 {
+  border-radius: 30%;
+  background-image: var(--img-url), linear-gradient(#f9f047, #0fd850);
+}
+
+.borderProfile-2 {
+  border-radius: 50%;
+  background-image: var(--img-url), linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);
 }

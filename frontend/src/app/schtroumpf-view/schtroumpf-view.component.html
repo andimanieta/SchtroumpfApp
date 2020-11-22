@@ -1,1 +1,28 @@
-<p>schtroumpf-view works!</p>
+<div class="profile_section">
+
+  <!--    <mat-card class="main_card">-->
+  <div class="card_picture">
+    <img alt="..." class="borderProfile borderProfile-1 image_card" mat-card-image
+         src="{{ data.picture }}">
+  </div>
+
+  <div class="card_content">
+    <mat-card-header>
+
+      <mat-card-title><p [ngStyle]="{'text-transform': 'uppercase'}" class="card_title">{{ data.name }}</p>
+      </mat-card-title>
+      <mat-card-subtitle><p class="card_subtitle">Age:
+        <i *ngIf="data.age <= 1"><strong>{{ data.age }} year old </strong></i>
+        <i *ngIf="data.age > 1"><strong>{{ data.age }} years old </strong> </i>
+      </p></mat-card-subtitle>
+      <mat-card-subtitle><p class="card_subtitle">Family: <i><strong>{{ data.family }}</strong></i></p>
+      </mat-card-subtitle>
+      <mat-card-subtitle><p class="card_subtitle">Food: <i><strong>{{ data.food }}</strong></i></p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <a (click)="closeDialog()" color="primary" mat-button>Close</a>
+    </mat-card-content>
+  </div>
+  <!--    </mat-card>-->
+</div>

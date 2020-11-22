@@ -1,67 +1,77 @@
 <!--<mat-grid-list class="main_grid" cols="3">
   <mat-grid-tile class="grid1" colspan="2">-->
+<h1>Profile</h1>
 <div class="profile_section">
-  <h1>Profile</h1>
-    <mat-card class="main_card">
-      <div class="card_picture">
-        <img alt="..." class="image_card" mat-card-image
-             src="https://www.coloori.com/wp-content/uploads/2016/01/schtroumpfs.jpg">
-      </div>
 
-      <div class="car_content">
-      <mat-card-header>
+  <!--    <mat-card class="main_card">-->
+  <div class="card_picture">
+    <img alt="..." class="borderProfile borderProfile-1 image_card" mat-card-image
+         src="{{ schtroumpf.picture }}">
+  </div>
 
-        <mat-card-title> <p class="card_title">{{ name }}</p></mat-card-title>
-        <mat-card-subtitle><p class="card_subtitle">Age:
-          <i *ngIf="age <= 1">{{ age }} year old </i>
-          <i *ngIf="age > 1">{{ age }} years old </i>
-        </p></mat-card-subtitle>
-        <mat-card-subtitle> <p class="card_subtitle">Family: <i>{{ family }}</i></p></mat-card-subtitle>
-        <mat-card-subtitle><p class="card_subtitle">Food: <i>{{ food }}</i></p> </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <a mat-button color="primary">Edit profile</a>
-      </mat-card-content>
-      </div>
-    </mat-card>
+  <div class="card_content">
+    <mat-card-header>
+
+      <mat-card-title><p [ngStyle]="{'text-transform': 'uppercase'}" class="card_title">{{ schtroumpf.name }}</p>
+      </mat-card-title>
+      <mat-card-subtitle><p class="card_subtitle">Age:
+        <i *ngIf="schtroumpf.age <= 1"><strong>{{ schtroumpf.age }} year old </strong></i>
+        <i *ngIf="schtroumpf.age > 1"><strong>{{ schtroumpf.age }} years old </strong> </i>
+      </p></mat-card-subtitle>
+      <mat-card-subtitle><p class="card_subtitle">Family: <i><strong>{{ schtroumpf.family }}</strong></i></p>
+      </mat-card-subtitle>
+      <mat-card-subtitle><p class="card_subtitle">Food: <i><strong>{{ schtroumpf.food }}</strong></i></p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <a (click)="onEdit()" color="primary" mat-button>Edit profile</a>
+    </mat-card-content>
+  </div>
+  <!--    </mat-card>-->
 </div>
+<hr>
 <br><br>
 <h1>Friends</h1>
 <div class="friendslist_section">
-
-  <mat-card class="small_card" *ngFor="let number of numbers">
-    <mat-card-header>
-      <div mat-card-avatar class="small_card-header-image"
-           [ngStyle]="{'background-image': 'url(' + urlimage + ')'}"></div>
-      <mat-card-subtitle>Friends {{number}}</mat-card-subtitle>
+  <mat-card *ngFor="let friend of schtroumpfFriends" class="small_card">
+    <mat-card-header (click)="OnView(friend)" class="firend_card_header">
+      <div [ngStyle]="{'background-image': 'url(' + friend.picture + ')'}"
+           class="small_card-header-image"
+           mat-card-md-image>
+      </div>
+      <div class="card_infos">
+      <mat-card-title>{{friend.name}}</mat-card-title>
+      <mat-card-subtitle>{{friend.age}} years old</mat-card-subtitle>
+      </div>
     </mat-card-header>
-    <mat-card-actions>
-      <button mat-button>Remove friend</button>
+
+    <div class="card_button">
+    <mat-card-actions class="card_button">
+      <a mat-flat-button (click)="onRemoveFriend(friend)">Remove friend</a>
     </mat-card-actions>
+    </div>
   </mat-card>
 </div>
 
 <br><br>
 <h1>All Schtroumpfs</h1>
 <div class="schtroumpfslist_section">
-
-  <mat-card class="small_card" *ngFor="let number of numbers">
-    <mat-card-header>
-      <div mat-card-avatar class="small_card-header-image"
-           [ngStyle]="{'background-image': 'url(' + urlimage + ')'}"></div>
-      <mat-card-subtitle>Friends {{number}}</mat-card-subtitle>
+  <mat-card *ngFor="let schtroumpf of allSchtroumpf" class="small_card">
+    <mat-card-header (click)="OnView(schtroumpf)" class="firend_card_header">
+      <div [ngStyle]="{'background-image': 'url(' + schtroumpf.picture + ')'}"
+           class="small_card-header-image"
+           mat-card-md-image>
+      </div>
+      <div class="card_infos">
+        <mat-card-title>{{schtroumpf.name}}</mat-card-title>
+        <mat-card-subtitle>{{schtroumpf.age}} years old</mat-card-subtitle>
+      </div>
     </mat-card-header>
-    <mat-card-actions>
-      <button mat-button>Add friend</button>
-    </mat-card-actions>
+
+    <div class="card_button">
+      <mat-card-actions class="card_button">
+        <a mat-flat-button (click)="onAddFriend(schtroumpf)">Add friend</a>
+      </mat-card-actions>
+    </div>
   </mat-card>
 </div>
-<!--  </mat-grid-tile>-->
-
-
-
-<!--
-  <mat-grid-tile class="grid2" colspan="1" rowspan="1">
-    Schtroumpf list</mat-grid-tile>
-</mat-grid-list>
--->

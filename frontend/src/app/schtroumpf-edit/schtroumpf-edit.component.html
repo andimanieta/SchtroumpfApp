@@ -1,11 +1,11 @@
 <div class="main_container">
 
-  <mat-toolbar color="accent" class="mat-elevation-z8">
-    <span class="fill-remaining-space"><p>Create an account</p></span>
+  <mat-toolbar color="primary" class="mat-elevation-z6">
+    <span class="fill-remaining-space"><p>Edit your profile</p></span>
   </mat-toolbar>
   <div class="form_container" *ngIf="!post; else forminfo" novalidate>
 
-    <form [formGroup]="formGroup" class="form">
+    <form [formGroup]="formGroup" (ngSubmit)="onSave(formGroup)"  class="form">
 
       <mat-form-field class="form-element">
         <input matInput placeholder="Your name" formControlName="name">
@@ -13,7 +13,7 @@
       </mat-form-field>
 
       <mat-form-field class="form-element">
-        <input  matInput placeholder="age" formControlName="age">
+        <input  matInput placeholder="Age" formControlName="age">
         <mat-error *ngIf="!formGroup.controls['age'].valid && formGroup.controls['age'].touched">
           {{ getErrorAge() }}
         </mat-error>
@@ -35,25 +35,17 @@
       </mat-form-field>
 
       <mat-form-field class="form-element">
-        <input matInput placeholder="Your URL picture" formControlName="picture">
+        <textarea matInput placeholder="Link of your picture" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="5"
+                  formControlName="picture"></textarea>
         <mat-error *ngIf="!formGroup.controls['picture'].valid && formGroup.controls['picture'].touched">
-          {{ titleAlert }}
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="form-element">
-        <input matInput placeholder="Password" formControlName="password">
-        <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
-        <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
-          {{ getErrorPassword() }}
+          Required field, must be between 5 and 10 characters.
         </mat-error>
       </mat-form-field>
 
       <div class="form-element">
-        <button mat-raised-button color="accent" type="submit" class="button" (click)="onSignup()"
-                [disabled]="!formGroup.valid">Sugn Up</button>
-        <mat-error *ngIf="serverErreur">{{ serverErreur }}</mat-error>
-      </div>
+        <button mat-raised-button color="accent" type="submit" class="button"
+                [disabled]="!formGroup.valid">Update changes</button>
+       </div>
 
     </form>
   </div>

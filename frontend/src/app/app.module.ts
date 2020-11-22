@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from "@angular/router";
 
+
 //----components----
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -15,6 +16,7 @@ import {SchtroumpfViewComponent} from './schtroumpf-view/schtroumpf-view.compone
 import {SchtroumpfListComponent} from './schtroumpf-list/schtroumpf-list.component';
 import {SchtroumpfFriendsListComponent} from './schtroumpf-friends-list/schtroumpf-friends-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SchtroumpfEditComponent } from './schtroumpf-edit/schtroumpf-edit.component';
 
 //----services----
 import {AuthService} from "./Services/auth.service";
@@ -34,7 +36,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatIconModule} from "@angular/material/icon";
 import {MatGridListModule} from "@angular/material/grid-list";
-import { FooterComponent } from './footer/footer.component';
+import {FooterComponent} from './footer/footer.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatInputModule} from "@angular/material/input";
 import 'hammerjs';
@@ -42,7 +44,7 @@ import 'hammerjs';
 
 
 export const routes: Routes = [
-  {path: 'home', component: SchtroumpfHomeViewComponent/*, canActivate: [AuthGuard]*/},
+  {path: 'home', component: SchtroumpfHomeViewComponent, canActivate: [AuthGuard]},
   {path: 'auth/signin', component: SigninComponent},
   {path: 'auth/signup', component: SignupComponent},
   {path: 'schtroumpfs', component: SchtroumpfListComponent/*, canActivate: [AuthGuard]*/},
@@ -64,6 +66,7 @@ export const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
+    SchtroumpfEditComponent,
   ],
   imports: [
     BrowserModule,
